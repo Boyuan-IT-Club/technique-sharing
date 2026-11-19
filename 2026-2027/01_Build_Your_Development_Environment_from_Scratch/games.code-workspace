@@ -1,0 +1,12 @@
+{
+  "folders": [
+    {
+      "name": "反应测试",
+      "path": "reaction"
+    },
+    {
+      "name": "服务器猜数字",
+      "path": "guess"
+    }
+  ]
+}

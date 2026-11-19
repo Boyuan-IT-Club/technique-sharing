@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>服务器猜数字</title>
+  <style>
+    :root { color-scheme: dark; font: 18px/1.5 "Microsoft YaHei", sans-serif; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px;
+      color: #f3f8f5; background: radial-gradient(ellipse at top, #203b33, #101916 62%);
+    }
+    main { width: min(100%, 720px); }
+    h1 { margin: 0; font-size: clamp(32px, 7vw, 62px); line-height: 1.15; }
+    p { margin: 12px 0 0; color: #bfccc5; }
+    form { margin-top: 32px; }
+    label { display: block; margin-bottom: 8px; font-weight: bold; }
+    .controls { display: flex; flex-wrap: wrap; gap: 10px; }
+    input, button { min-height: 58px; padding: 10px 16px; border-radius: 8px; font: inherit; }
+    input { flex: 1 1 160px; min-width: 0; color: inherit; background: #16221d; border: 1px solid #718a7d; }
+    input::placeholder { color: #a5b9ad; }
+    button { border: 0; background: #c4f28b; color: #1b2e14; font-weight: bold; cursor: pointer; }
+    button:hover { background: #d9ffa9; }
+    :focus-visible { outline: 3px solid #d9ffa9; outline-offset: 4px; }
+    .receipt { margin-top: 22px; padding: 18px 22px; border-left: 4px solid #c4f28b; background: #20312a; }
+    .receipt h2 { margin: 0; font-size: 16px; color: #bfccc5; font-weight: normal; }
+    output { display: block; margin-top: 4px; font-size: clamp(22px, 5vw, 34px); font-weight: bold; }
+    footer { margin-top: 18px; color: #bfccc5; overflow-wrap: anywhere; }
+    footer strong { color: #c4f28b; }
+    @media (max-width: 420px) { .controls button { width: 100%; } }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>服务器猜数字</h1>
+    <p>猜一个 1 到 100 的整数，看看服务器怎么回答。</p>
+    <form method="post" action="{{ url_for('submit_guess') }}">
+      <label for="guess">你的猜测</label>
+      <div class="controls">
+        <input id="guess" name="guess" type="number" min="1" max="100" step="1"
+               inputmode="numeric" placeholder="1 到 100" value="{{ guess | default('') }}" required>
+        <button type="submit">提交猜测</button>
+      </div>
+    </form>
+    <section class="receipt" aria-labelledby="receipt-title">
+      <h2 id="receipt-title">服务器回复</h2>
+      <output for="guess">{{ result | default("等你猜第一轮") }}</output>
+    </section>
+    <footer>服务标识 <strong>{{ server_label }}</strong></footer>
+  </main>
+</body>
+</html>

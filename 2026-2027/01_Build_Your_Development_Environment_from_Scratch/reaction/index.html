@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>红灯绿灯反应测试</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px;
+      background: #111827; color: #f9fafb; font: 18px/1.6 "Microsoft YaHei", sans-serif; }
+    main { width: min(100%, 780px); }
+    h1 { margin: 0; font-size: clamp(29px, 6vw, 56px); line-height: 1.2; }
+    p { margin: 14px 0 24px; color: #d1d5db; }
+    button { width: 100%; min-height: 270px; padding: 24px; border: 0; border-radius: 20px;
+      background: #e2e8f0; color: #111827; font: bold clamp(26px, 5vw, 48px) "Microsoft YaHei", sans-serif; cursor: pointer; }
+    button[data-state="waiting"] { background: #a52835; color: #fff; }
+    button[data-state="ready"] { background: #73e6a1; color: #07331b; }
+    button:focus-visible { outline: 4px solid #7dd3fc; outline-offset: 6px; }
+    output { display: block; min-height: 2em; margin-top: 18px; color: #e5e7eb; font-size: 24px; }
+  </style>
+  <script src="round.js" defer></script>
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>红灯绿灯反应测试</h1>
+    <p>先点开始，等红灯变绿，再尽快点击。</p>
+    <button id="reaction-button" type="button">点击开始</button>
+    <output id="result" for="reaction-button" aria-live="polite">等绿灯亮起再点。</output>
+  </main>
+</body>
+</html>
