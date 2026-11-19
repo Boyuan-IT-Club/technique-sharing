@@ -23,7 +23,7 @@
 
 ## 课件
 
-[第一课 PPT](materials/开发环境配置与编辑器.pptx)（含演讲者备注；新增页的讲稿在逐页讲稿里） · [逐页讲稿](materials/逐页讲稿.md) · [Windows 快捷键一页表 PDF](materials/vscode-shortcuts-windows.pdf)
+[第一课课件 PDF](materials/开发环境配置与编辑器.pdf)（57 页，排版与 PPT 一致） · [第一课 PPT](materials/开发环境配置与编辑器.pptx)（含演讲者备注；新增页的讲稿在逐页讲稿里） · [逐页讲稿](materials/逐页讲稿.md) · [Windows 快捷键一页表 PDF](materials/vscode-shortcuts-windows.pdf)
 
 ## VS Code 编辑练习
 
